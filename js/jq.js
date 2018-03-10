@@ -211,6 +211,57 @@ $(function () {
     }).clearQueue();
 
     //滚动条
+    // function scorll(a) {
+    //     let floors=$(a);
+    //     let navs=$('.left .nav a');
+    //     let ch=$(window).height();
+    //     let back=$('#icon');
+    //     let hidden=$('.hidden');
+    //     let trans=$('.dajuhui');
+    //     let asides=$('.left');
+    //     let flag=true;
+    //     let tops;
+    //     $(window).scroll(function () {
+    //         if(!flag){
+    //             return;
+    //         }
+    //         flag=false;
+    //         tops=$(document).scrollTop();
+    //         if(tops>=$(trans).position().top){
+    //             $(asides).show();
+    //             $(hidden).slideDown();
+    //         }
+    //         else {
+    //             $(asides).hide();
+    //             $(hidden).slideUp();
+    //         }
+    //         floors.each(function (index) {
+    //             if(tops>=$(this).position().top){
+    //                 // $(navs).eq($(this).index()).addClass('active').siblings().removeClass('active');
+    //                 navs.each(function () {
+    //                     $(this).removeClass('active');
+    //                 });
+    //                 navs.eq(index).addClass('active');
+    //             }
+    //         })
+    //     });
+    //     navs.each(function (index) {
+    //         $(this).click(function () {
+    //             let height=floors.eq(index).position().top+ch-260;
+    //             $('body,html').animate({scrollTop:height},500,function () {
+    //                 flag=true;
+    //             });
+    //         });
+    //     });
+    //
+    //     back.click(function () {
+    //         $('body,html').animate({scrollTop:0},500,function () {
+    //             flag=true;
+    //         });
+    //     });
+    // }
+    // scorll('.scroll');
+
     function scorll(a) {
         let floors=document.querySelectorAll(a);
         let navs=document.querySelectorAll('.left .nav a');
@@ -225,9 +276,6 @@ $(function () {
         window.onscroll=function () {
             let tops=document.body.scrollTop?document.body.scrollTop:document.documentElement.scrollTop;
             floors.forEach(function (val,index) {
-                if(!flag){
-                    return;
-                }
                 if(tops>=val.offsetTop){
                     asides.classList.add('leftActive');//将含有display:block的类名赋给侧导航，侧导航出现
                     navs.forEach(function (value) {
@@ -275,5 +323,7 @@ $(function () {
         };
     }
     scorll('.scroll');
+
+
 
 });
